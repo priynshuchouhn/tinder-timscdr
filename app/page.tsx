@@ -52,9 +52,9 @@ export default function Home() {
       </div>
       <div className="px-4 mb-4">
       <div className="bg-sky-100 rounded-2xl p-3">
-          <p className="mb-3 text-sky-900">All TIMSCDR students, this one's for you! Whether you're looking to make new friends, find a study buddy, join a project team, or even just keep things casual, Tinder for TIMSCDR has got you covered. With a unique platform designed specifically for students like you, it’s the perfect place to connect with peers and build meaningful connections that last beyond the classroom.</p>
-          <p className="mb-3 text-sky-900">Life at TIMSCDR is fast-paced, and we know meeting people in person isn’t always easy. That’s where Tinder for TIMSCDR comes in! Join a community of classmates ready to meet someone just like you – whether you’re looking for friendships, project partners, or just someone to chat with about your favorite interests. From tech enthusiasts and future entrepreneurs to art lovers and gamers, there’s a match for everyone here.</p>
-          <p className="mb-3 text-sky-900">So, are you ready to make the most of your campus life? Connect with like-minded peers, make new memories, and enjoy everything Tinder for TIMSCDR has to offer. It’s not just an app – it’s a whole new way to experience TIMSCDR.</p>
+          <p className="mb-3 text-sky-900">All TIMSCDR students, this one&apos;s for you! Whether you&apos;re looking to make new friends, find a study buddy, join a project team, or even just keep things casual, Tinder for TIMSCDR has got you covered. With a unique platform designed specifically for students like you, it&apos;s the perfect place to connect with peers and build meaningful connections that last beyond the classroom.</p>
+          <p className="mb-3 text-sky-900">Life at TIMSCDR is fast-paced, and we know meeting people in person isn&apos;t always easy. That&apos;s where Tinder for TIMSCDR comes in! Join a community of classmates ready to meet someone just like you – whether you&apos;re looking for friendships, project partners, or just someone to chat with about your favorite interests. From tech enthusiasts and future entrepreneurs to art lovers and gamers, there&apos;s a match for everyone here.</p>
+          <p className="mb-3 text-sky-900">So, are you ready to make the most of your campus life? Connect with like-minded peers, make new memories, and enjoy everything Tinder for TIMSCDR has to offer. It&apos;s not just an app – it&apos;s a whole new way to experience TIMSCDR.</p>
         </div>
       </div>
       <Footer/>
