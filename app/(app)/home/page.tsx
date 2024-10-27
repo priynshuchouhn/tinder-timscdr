@@ -1,7 +1,6 @@
 'use client'
 import { Button } from '@/components/ui/button';
 import { Heart, RotateCcw, Star, X, Zap } from 'lucide-react';
-import Image from 'next/image'
 import React, { Fragment, Ref, useEffect, useMemo, useRef, useState } from 'react'
 import TinderCard from 'react-tinder-card'
 
