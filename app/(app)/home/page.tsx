@@ -91,7 +91,7 @@ function Home() {
   const swipe = async (dir: any,) => {
     if (canSwipe && currentIndex < db.length) {
       await childRefs[currentIndex].current.swipe(dir) // Swipe the card!
-      let newDb = [...db];
+      const newDb = [...db];
       newDb.splice(currentIndex, 1);
       console.log(newDb);
       setDb(newDb);
