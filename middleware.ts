@@ -8,7 +8,7 @@ export default clerkMiddleware(async (auth, request) => {
   console.log(userId);
   if (isPublicRoute(request) && userId) {
     // Redirect logged-in users away from public routes
-    return NextResponse.redirect(new URL('/home', request.url));
+    return NextResponse.redirect(new URL('/app/recs', request.url));
   } 
   if (!isPublicRoute(request)) {
     await auth.protect()

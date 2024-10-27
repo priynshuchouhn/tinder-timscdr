@@ -1,10 +1,12 @@
 'use client'
 import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
 import { Heart, RotateCcw, Star, X, Zap } from 'lucide-react';
-import React, { Fragment, Ref, useEffect, useMemo, useRef, useState } from 'react'
+import React, { Fragment, useEffect, useMemo, useRef, useState } from 'react'
 import TinderCard from 'react-tinder-card'
 
 function Home() {
+
   const [swipeDir, setSwipeDir] = useState(null);
   const [db, setDb] = useState([
     {
@@ -33,24 +35,14 @@ function Home() {
       url: '/dinesh.jpg'
     }
   ]);
-  useEffect(() => {
-    if (swipeDir != null) {
-      setTimeout(() => {
-        setSwipeDir(null)
-      }, 1000)
-    }
-  }, [swipeDir])
-  const onSwipe = (direction: any) => {
-    setSwipeDir(direction)
-    console.log('You swiped: ' + direction)
-  }
+  // useEffect(() => {
+  //   if (swipeDir != null) {
+  //     setTimeout(() => {
+  //       setSwipeDir(null)
+  //     }, 1000)
+  //   }
+  // }, [swipeDir])
 
-  const onCardLeftScreen = (myIdentifier: any) => {
-    let newDb = [...db];
-    newDb = newDb.filter(el => el.name != myIdentifier);
-    setDb(newDb);
-    console.log(myIdentifier + ' left the screen')
-  }
 
   const [currentIndex, setCurrentIndex] = useState(db.length - 1)
   const [lastDirection, setLastDirection] = useState()
@@ -74,12 +66,18 @@ function Home() {
 
   // set last direction and decrease current index
   const swiped = (direction: any, nameToDelete: any, index: number) => {
+    console.log('hello')
+    setSwipeDir(direction)
     setLastDirection(direction)
     updateCurrentIndex(index - 1)
+    // const newDb = [...db];
+    // newDb.splice(currentIndex, 1);
+    // setDb(newDb);
   }
 
   const outOfFrame = (name: any, idx: number) => {
     console.log(`${name} (${idx}) left the screen!`, currentIndexRef.current)
+    setSwipeDir(null)
     // handle the case in which go back is pressed before card goes outOfFrame
     // currentIndexRef.current >= idx && childRefs[idx].current.restoreCard()
     // TODO: when quickly swipe and restore multiple times the same card,
@@ -89,11 +87,11 @@ function Home() {
 
   const swipe = async (dir: any,) => {
     if (canSwipe && currentIndex < db.length) {
+      setSwipeDir(dir)
       await childRefs[currentIndex].current.swipe(dir) // Swipe the card!
-      const newDb = [...db];
-      newDb.splice(currentIndex, 1);
-      console.log(newDb);
-      setDb(newDb);
+      // const newDb = [...db];
+      // newDb.splice(currentIndex, 1);
+      // setDb(newDb);
     }
   }
 
@@ -105,10 +103,9 @@ function Home() {
     await childRefs[newIndex].current.restoreCard()
   }
 
-
   return (
     <div className='h-screen flex flex-col items-center justify-evenly overflow-hidden w-full'>
-      {db.length > 0 ?
+      {currentIndex > -1 ?
         <>
           <div className='relative p-2 aspect-[4/5] w-full md:w-[25rem] max-h-[75vh] md:max-h-[70vh] rounded-lg md:overflow-hidden shadow-2xl bg-green-50'>
             {
@@ -131,6 +128,7 @@ function Home() {
                 </Fragment>
               )
             }
+          {swipeDir && <p className={cn('text-2xl font-semibold absolute top-4 z-10 border-4  p-2 px-3 rounded-md ', swipeDir == 'right' ? 'border-green-500 text-green-500 left-2 -rotate-6' : 'border-red-700 text-red-700 right-2 rotate-6')}>{swipeDir == 'right' ? 'Like' : 'Nope'}</p>}
           </div>
           <div className='flex gap-3 items-center'>
             <div className="p-[2px] bg-gradient-to-tr from-amber-400  to-amber-600 rounded-full inline-block ">
