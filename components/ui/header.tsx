@@ -13,7 +13,7 @@ export function Header() {
             </div>
             <div>
                 <SignedOut>
-                    <span className="bg-primary text-primary-foreground hover:bg-primary/90 h-10 py-2 rounded-full px-8">
+                    <span className="bg-primary text-primary-foreground hover:bg-rose-950 h-10 py-2 rounded-full px-8">
                         <SignInButton />
                     </span>
                 </SignedOut>

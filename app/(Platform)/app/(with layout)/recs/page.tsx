@@ -66,7 +66,6 @@ function Home() {
 
   // set last direction and decrease current index
   const swiped = (direction: any, nameToDelete: any, index: number) => {
-    console.log('hello')
     setSwipeDir(direction)
     setLastDirection(direction)
     updateCurrentIndex(index - 1)

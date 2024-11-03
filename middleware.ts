@@ -5,7 +5,6 @@ const isPublicRoute = createRouteMatcher(['/','/sign-in(.*)', '/sign-up(.*)'])
 
 export default clerkMiddleware(async (auth, request) => {
   const userId = (await auth()).userId;
-  console.log(userId);
   if (isPublicRoute(request) && userId) {
     // Redirect logged-in users away from public routes
     return NextResponse.redirect(new URL('/app/recs', request.url));
