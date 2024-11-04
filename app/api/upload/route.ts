@@ -9,7 +9,6 @@ cloudinary.v2.config({
 
 export async function POST(req:any) {
   try {
-    console.log('in api')
     const body = await req.json();
     const fileStr = body.data; // Assuming the data is a base64 string
 
